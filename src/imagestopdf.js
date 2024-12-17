@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
 import './imagestopdf.css';
+
 export default function Imagestopdf() {
   const [images, setImages] = useState([]);
 
@@ -30,14 +31,42 @@ export default function Imagestopdf() {
     const doc = new jsPDF();
 
     images.forEach((image, index) => {
-      if (index > 0) {
-        doc.addPage(); 
-      }
+      const img = new Image();
+      img.src = image;
 
-        doc.addImage(image, 'JPEG', 15, 40,180, 200); 
+      img.onload = () => {
+        const imgWidth = img.width;
+        const imgHeight = img.height;
+
+        // Calculate the aspect ratio to maintain the original dimensions
+        const aspectRatio = imgWidth / imgHeight;
+        
+        // Set the maximum width and height for the image on the PDF page
+        const maxWidth = 180;  // Define your maximum width here
+        const maxHeight = 250;  // Define your maximum height here
+
+        let width = maxWidth;
+        let height = maxWidth / aspectRatio;
+
+        // If the height exceeds maxHeight, scale down by height instead
+        if (height > maxHeight) {
+          height = maxHeight;
+          width = maxHeight * aspectRatio;
+        }
+
+        if (index > 0) {
+          doc.addPage(); 
+        }
+
+        // Add image to PDF while maintaining the aspect ratio
+        doc.addImage(image, 'JPEG', 15, 40, width, height);
+        
+        // If it's the last image, save the PDF
+        if (index === images.length - 1) {
+          doc.save('converted-images.pdf');
+        }
+      };
     });
-
-    doc.save('converted-images.pdf');
   };
 
   return (
@@ -51,7 +80,16 @@ export default function Imagestopdf() {
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             {images.map((image, index) => (
               <div key={index} style={{ margin: '10px' }}>
-                <img src={image} alt={`Preview ${index}`} style={{ width: '100px', maxHeight: '100px', objectFit: 'contain' }} />
+                <img
+                  src={image}
+                  alt={`Preview ${index}`}
+                  style={{
+                    width: '100px',
+                    maxHeight: '100px',
+                    objectFit: 'contain',
+                    overflow: 'hidden', // Hide overflow in preview
+                  }}
+                />
               </div>
             ))}
           </div>
