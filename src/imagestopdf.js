@@ -111,6 +111,7 @@ export default function Imagestopdf() {
 
   return (
     <section id='imagestopdf-section'>
+        <h1 style={{textAlign:'center'}}>Images To Pdf Converter</h1>
       <div id='imagestopdf-cont'>
         <input type="file" accept="image/*" onChange={handleFileChange} multiple />
       </div>
