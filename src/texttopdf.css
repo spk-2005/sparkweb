@@ -1,0 +1,78 @@
+/* Section Styling */
+#texttopdf-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #texttopdf-cont {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  /* Textarea Styling */
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: all 0.3s ease;
+  }
+  
+  textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    #texttopdf-section {
+      padding: 15px;
+    }
+  
+    textarea {
+      font-size: 14px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    textarea {
+      font-size: 13px;
+    }
+  
+    button {
+      padding: 15px;
+      font-size: 18px;
+    }
+  }
+  

@@ -1,0 +1,103 @@
+
+#imagestopdf-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #imagestopdf-cont {
+    margin-bottom: 20px;
+  }
+  
+  #imagestopdf-cont input[type="file"] {
+    display: block;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.123);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #imagestopdf-cont input[type="file"]:hover {
+    background-color: #00f70041;
+  }
+  
+  #prev {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  #prev h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  #prev img {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  #prev img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #imagestopdf-section {
+      padding: 15px;
+    }
+  
+    #prev {
+      max-width: 100%;
+    }
+  
+    #prev img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    #prev img {
+      width: 70px;
+      height: 70px;
+    }
+  
+    button {
+      padding: 15px;
+      font-size: 18px;
+    }
+  }
+  
