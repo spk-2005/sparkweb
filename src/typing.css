@@ -1,10 +1,10 @@
 
-
-/* Main Section */
 #typingtest-section {
   background: #ffffff;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
   padding: 50px;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 12px;
   max-width: 800px;
   width: 100%;
@@ -12,7 +12,25 @@
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
   transform: scale(0.98);
 }
-
+#typingtest-section #note{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  animation: swing .3s ease-in-out alternate infinite;
+}
+@keyframes swing {
+  from{
+    color: #2980b9;
+  }
+  to{
+    color: #2ecc71;
+  }
+}
+#typingtest-section #note P{
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: red;
+}
 #typingtest-section:hover {
   transform: scale(1);
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
@@ -65,7 +83,7 @@
 }
 
 /* Textarea Styles */
-textarea {
+#typingtest-cont textarea {
   width: 100%;
   padding: 15px;
   font-size: 18px;
@@ -77,7 +95,7 @@ textarea {
   white-space: pre-wrap;
 }
 
-textarea:focus {
+#typingtest-cont textarea:focus {
   background-color: #ffffff;
   border-color: #3498db;
   outline: none;
@@ -85,7 +103,7 @@ textarea:focus {
 }
 
 /* Textarea Hover */
-textarea:hover {
+#typingtest-cont textarea:hover {
   background-color: #f1f1f1;
 }
 
@@ -184,7 +202,7 @@ textarea:hover {
     font-size: 16px;
   }
 
-  textarea {
+  #typingtest-cont textarea {
     font-size: 16px;
   }
 
@@ -198,7 +216,7 @@ textarea:hover {
     font-size: 1.8rem;
   }
 
-  textarea {
+  #typingtest-cont textarea {
     font-size: 14px;
     padding: 10px;
   }

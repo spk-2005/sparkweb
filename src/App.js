@@ -15,6 +15,7 @@ import Typingtest from './typingtest';
 import Typing from './typing';
 import Typingtime from './typingtime';
 import Typingresult from './typingresult';
+import Typingranks from './typingranks';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Route path='typing/:level/:time' element={<Typing/>}/>
       <Route path='typingtime/:level/:name' element={<Typingtime/>}/>
       <Route path='typingresult' element={<Typingresult/>}/>
+      <Route path='typingranks' element={<Typingranks/>}/>
     </Routes>
     </BrowserRouter>
     </>

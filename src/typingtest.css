@@ -1,0 +1,119 @@
+
+  /* Section Container */
+  #typintest-section {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    animation: slideIn 0.8s ease-out;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+  }
+  
+  /* Heading */
+  #typintest-cont h1 {
+    font-size: 2rem;
+    font-weight: bold;  
+    margin-bottom: 1rem;
+    color: #2a3b4f;
+  }
+  
+  /* Input Field */
+  input[type="text"] {
+    width: 90%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 2px solid #d1d9e6;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #6371c4;
+    background: #f8f9fc;
+  }
+  
+  /* Dropdown */
+  select {
+    width: 90%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #d1d9e6;
+    border-radius: 10px;
+    outline: none;
+    background: #f8f9fc;
+    color: #2a3b4f;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  select:hover {
+    border-color: #6371c4;
+  }
+  
+  select:focus {
+    border-color: #6371c4;
+  }
+  
+  /* Button */
+  button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: #6371c4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: #4d5eb7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Error Message */
+  p {
+    font-size: 0.9rem;
+    color: #e63946;
+    margin-top: -0.5rem;
+  }
+  
+  /* Animations */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    #typintest-cont h1 {
+      font-size: 1.8rem;
+    }
+  
+    input[type="text"], select, button {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -16,18 +16,19 @@ export default function Typing() {
   const [isTypingStarted, setIsTypingStarted] = useState(false); // Check if typing has started
   const { level, time } = useParams(); // Get the level and time from the URL params
   const navigate = useNavigate();
-const name=localStorage.getItem('name');
+  const name = localStorage.getItem('name');
+
   const handleRedirect = useCallback(() => {
     navigate('/typingresult', {
       state: {
-        level, 
-        totalTime,
-        accuracy,
+        level,
+        totalTime: totalTime.toFixed(2), // Ensure total time is passed correctly
+        accuracy: accuracy.toFixed(2),
         misspelledWords,
         name,
       },
     });
-  }, [navigate, level, totalTime, accuracy, misspelledWords,name]);
+  }, [navigate, level, totalTime, accuracy, misspelledWords, name]);
 
   useEffect(() => {
     const fetchTexts = async () => {
@@ -45,7 +46,7 @@ const name=localStorage.getItem('name');
 
         if (records.length > 0) {
           const allTexts = records.map((record) => record.fields[levelField]);
-          setTexts(allTexts); // Set texts as an array of sections
+          setTexts(allTexts);
         } else {
           setError('No texts available for the selected level.');
         }
@@ -70,13 +71,13 @@ const name=localStorage.getItem('name');
       handleRedirect();
     }
 
-    return () => clearInterval(timer); // Cleanup interval on unmount or when the test ends
+    return () => clearInterval(timer);
   }, [isTypingStarted, timeRemaining, handleRedirect]);
 
   const handleStart = () => {
-    setTimeRemaining(parseInt(time)); // Initialize timer with value from params
+    setTimeRemaining(parseInt(time));
     setIsTypingStarted(true);
-    setStartTime(Date.now()); // Set the start time
+    setStartTime(Date.now());
   };
 
   const handleInputChange = (e) => {
@@ -84,16 +85,16 @@ const name=localStorage.getItem('name');
     setUserInput(input);
 
     if (startTime === null && input.length > 0) {
-      setStartTime(Date.now()); // Start time when the user begins typing
+      setStartTime(Date.now());
     }
 
     calculateAccuracy();
     calculateMisspelledWords();
 
     if (input === texts[0]) {
-      setTotalTime((prevTime) => prevTime + (Date.now() - startTime) / 1000); // Add time to total
-      setUserInput(''); // Reset user input for the next section
-      setTexts((prevTexts) => prevTexts.slice(1)); // Remove the completed section and show the next
+      setTotalTime((prevTime) => prevTime + (Date.now() - startTime) / 1000);
+      setUserInput('');
+      setTexts((prevTexts) => prevTexts.slice(1));
     }
   };
 
@@ -106,7 +107,7 @@ const name=localStorage.getItem('name');
     }
 
     const overallAccuracy = (correct / texts[0]?.length) * 100;
-    setAccuracy(overallAccuracy.toFixed(2));
+    setAccuracy(overallAccuracy);
   };
 
   const calculateMisspelledWords = () => {
@@ -119,15 +120,14 @@ const name=localStorage.getItem('name');
     setMisspelledWords(misspelled);
   };
 
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
   const coloredText = texts[0]?.split('').map((char, index) => {
-    let color = 'gray'; // Default color is gray for placeholder
+    let color = 'gray';
 
     if (userInput[index] !== undefined) {
-      color = userInput[index] === char ? '#009933' : '#e60000'; // Green for correct, red for incorrect
+      color = userInput[index] === char ? '#009933' : '#e60000';
     }
 
     return (
@@ -138,51 +138,25 @@ const name=localStorage.getItem('name');
   });
 
   return (
-    <section id="typingtest-section">
-    <h1>Your name : {name}</h1>
+    <section id="typingtest-section"><span id="note">
+    <p><strong>Note:</strong></p>
+    The timer will continue if you make any errors or remain idle. It stops when you type correctly without interruption.
+  </span>
+  
+
+      <h1>Your Name: {name}</h1>
       <div id="typingtest-cont">
         <h1>Typing Test: {level.toUpperCase()}</h1>
         {!isTypingStarted ? (
-          <button
-            onClick={handleStart}
-            style={{
-              fontSize: '18px',
-              padding: '10px 20px',
-              backgroundColor: '#007BFF',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-            }}
-          >
+          <button onClick={handleStart} style={{ fontSize: '18px', padding: '10px 20px' }}>
             Start Typing
           </button>
         ) : (
           <>
             <p><strong>Time Remaining:</strong> {timeRemaining} seconds</p>
             <p><strong>Text:</strong></p>
-            <div style={{ fontSize: '18px', lineHeight: '1.5', transition: 'opacity 1s ease', fontWeight: 'bold' }}>
-              {coloredText}
-            </div>
-            <form>
-              <textarea
-                value={userInput}
-                onChange={handleInputChange}
-                placeholder="Start typing here..."
-                rows="5"
-                cols="50"
-                style={{
-                  fontSize: '18px',
-                  width: '100%',
-                  lineHeight: '1.5',
-                  padding: '10px',
-                  border: '1px solid #ccc',
-                  backgroundColor: 'transparent',
-                  transition: 'background-color 0.3s ease',
-                }}
-              />
-            </form>
-          
+            <div>{coloredText}</div>
+            <textarea value={userInput} onChange={handleInputChange} placeholder="Start typing here..." rows="5" />
           </>
         )}
       </div>

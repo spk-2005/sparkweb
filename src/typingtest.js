@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import base from './airtable'; // Import your Airtable configuration
-
+import './typingtest.css';
+import Typingranks from './typingranks';
 export default function Typingtest() {
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -61,6 +62,7 @@ export default function Typingtest() {
   };
 
   return (
+    <>
     <section id="typintest-section">
       <input
         type="text"
@@ -82,5 +84,7 @@ export default function Typingtest() {
         </div>
       </div>
     </section>
+    <Typingranks/>
+    </>
   );
 }
