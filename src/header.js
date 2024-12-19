@@ -28,9 +28,10 @@ export default function Header() {
                 </li>
                 <li>Engineering
                     <ul>
-                        <CustomLink href='./cgpa'>Find CGPA</CustomLink>
-                        <CustomLink href='./sgpa'>Find SGPA</CustomLink>
+                        <CustomLink href='./findcgpa'>Find CGPA</CustomLink>
+                        <CustomLink href='./findsgpa'>Find SGPA</CustomLink>
                         <CustomLink href='./resume'>Resume Builder</CustomLink>
+                        <CustomLink href='./typingtest'>Typing Test</CustomLink>
                         </ul>
                 </li>
                 <li>Wishes

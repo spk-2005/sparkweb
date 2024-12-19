@@ -1,0 +1,147 @@
+#cgpa-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  #cgpa-section:hover {
+    transform: scale(1.02);
+  }
+  
+  #cgpa-section h3 {
+    animation: blink 1s ease-in-out alternate infinite;
+    color: #af4c4c;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+  
+  @keyframes blink {
+    from{
+        transform: scale(1.1);
+        color: red;
+    }
+    to{
+        transform: scale(1);
+        color: blue;
+    }
+  }
+  #cgpa-section h3:hover {
+    color: #45a049;
+  }
+  
+  #cgpa-cont {
+    padding-bottom: 1em;
+    margin: 0;
+  }
+  
+  #cgpa-section table {
+    width: 90%;
+  }
+  
+  #cgpa-section table td {
+    padding: 10px;
+    text-align: left;
+    font-size: 1rem;
+     
+  }
+  
+  #cgpa-section table td input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #cgpa-section table td input[type="number"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  #cgpa-section h1{
+    text-align: center;
+    color: gray;
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+  }
+  #cgpa-section button#calcbut {
+    margin-bottom: 1em;
+    background-color: #af4c56;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+        border-radius: 5px;
+        width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #cgpa-section button#calcbut:hover {
+    background-color: #c81919;
+    transform: scale(1.05);
+  }
+  
+  #cgpa-section table button#calcbut:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 768px) {
+    #cgpa-section {
+      padding: 20px;
+    }
+  
+    #cgpa-section h3 {
+      font-size: 1rem;
+    }
+  
+    #cgpa-section table td input[type="number"],
+    button#calcbut {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  
+    #cgpa-section table {
+      display: block;
+    }
+  
+    #cgpa-section table td {
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #cgpa-section table td input[type="number"],
+    button#calcbut {
+      font-size: 0.8rem;
+      width: 100% !important;
+      padding: 10px !important;
+    }
+  
+    #cgpa-section table td {
+      font-size: 0.8rem;
+    }
+  
+    #cgpa-section {
+      padding: 10px;
+    }
+    #cgpa-section h3 {
+        font-size: .9rem;
+    }
+    #cgpa-section h1 {
+        font-size: 1.3rem !important;
+    }
+  }
+  

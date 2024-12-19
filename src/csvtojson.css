@@ -1,0 +1,98 @@
+.csvtojson-container {
+    width: 80%;
+    max-width: 1200px; /* Maximum width for better readability */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .csvtojson-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .csvtojson-input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .csvtojson-error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .csvtojson-output {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .csvtojson-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  }
+  
+  .csvtojson-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .csvtojson-button:hover {
+    background-color: #45a049;
+  }
+  
+  .csvtojson-textarea {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto; /* Enable horizontal scrolling if JSON is too wide */
+  }
+  
+  @media only screen and (max-width: 780px) {
+    .csvtojson-button {
+      font-size: 1rem;
+      padding: 8px 16px;
+      margin: 5px;
+    }
+    .csvtojson-container {
+      width: 90%;
+      padding: 15px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .csvtojson-button {
+      font-size: 0.8rem !important;
+      padding: 6px 12px !important;
+      margin: 5px;
+    }
+    .csvtojson-output {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .csvtojson-textarea {
+      padding: 15px;
+    }
+    .csvtojson-input{
+        width: 50%;
+    }
+  }
+  

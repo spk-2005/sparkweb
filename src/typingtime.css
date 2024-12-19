@@ -1,0 +1,56 @@
+.typingtime-section {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    padding: 40px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typingtime-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 500px;
+    width: 100%;
+}
+
+.typingtime-container:hover {
+    transform: scale(1.05);
+}
+
+.typingtime-container h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.typingtime-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.typingtime-list li {
+    background: #3498db;
+    color: #ffffff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.typingtime-list li:hover {
+    background: #2ecc71;
+    transform: translateY(-5px);
+}
+
+.typingtime-list li:active {
+    background: #e74c3c;
+    transform: translateY(2px);
+}

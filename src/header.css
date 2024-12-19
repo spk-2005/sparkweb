@@ -37,6 +37,7 @@
   }
   
   #header-section #header-cont ol li:hover > ul {
+    z-index: 1000;
     display: block;
   }
   
