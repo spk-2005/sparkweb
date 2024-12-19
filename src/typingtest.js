@@ -14,53 +14,49 @@ export default function Typingtest() {
     const selectedLevel = e.target.value;
     setLevel(selectedLevel); // Set the selected level
   };
-
-  // Handle the "Go" button click event
   const handleGo = async () => {
-    if (!name) {
-      setMessage('Please enter your name.');
-      return;
-    }
-
+    // Default the name to "Guest_1" if no name is entered
+    const userName = name.trim() || `Guest_${Math.floor(Math.random() * 1000)}`;
+  
     if (!level) {
       setMessage('Please select a difficulty level.');
       return;
     }
-
+  
     try {
       // Check if the name already exists in the 'typingusers' table
       const records = await base('typingusers')
         .select({
-          filterByFormula: `{Name} = "${name}"`, // Filter by the 'Name' field
+          filterByFormula: `{Name} = "${userName}"`, // Filter by the 'Name' field
         })
         .firstPage();
-
+  
       // If the name already exists (existing user)
       if (records.length > 0) {
         setMessage('Welcome back! You are now logged in.');
-        
+  
         // Navigate to the selected level
-        navigate(`/typingtime/${level.toLowerCase()}/${name}`);
+        navigate(`/typingtime/${level.toLowerCase()}/${userName}`);
       } else {
         // If the name does not exist (new user)
         // Save the new user to Airtable
         await base('typingusers').create([
           {
-            fields: { Name: name },
+            fields: { Name: userName },
           },
         ]);
         setMessage('Registration successful! You are now registered.');
-
+  
         // Navigate to the selected level
-        navigate(`/typingtime/${level.toLowerCase()}/${name}`);
-        localStorage.setItem('name',name);
+        navigate(`/typingtime/${level.toLowerCase()}/${userName}`);
+        localStorage.setItem('name', userName);
       }
     } catch (error) {
       console.error('Error checking or saving name:', error);
       setMessage('An error occurred while checking or saving the name.');
     }
   };
-
+  
   return (
     <>
     <section id="typintest-section">

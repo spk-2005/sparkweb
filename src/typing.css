@@ -45,6 +45,27 @@
   letter-spacing: 2px;
   transition: color 0.4s ease, transform 0.3s ease;
 }
+#typebor {
+  position: relative;
+  border: 2px solid gray;
+}
+
+#typebor::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%; 
+  height: 100%; /* Initial height for before pseudo-element */
+  transition: height 1s ease-out; /* Smooth transition for height change */
+}
+
+#typebor .textarea-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 
 #typingtest-cont h1:hover {
   color: #3498db;
@@ -229,4 +250,71 @@
     font-size: 0.9rem;
     padding: 10px 20px;
   }
+}
+
+
+.highlight1{
+  animation: highlightText 0.3s ease-in-out;
+}
+
+@keyframes highlightText {
+  0% {
+    background-color: rgba(76, 175, 80, 0.3);
+  }
+  50% {
+    background-color: rgba(76, 175, 80, 0.5);
+  }
+  100% {
+    background-color: rgba(76, 175, 80, 0);
+  }
+}
+.highlight2{
+  animation: highlightText2 0.3s ease-in-out;
+}
+
+@keyframes highlightText2 {
+  0% {
+    background-color: rgba(175, 76, 76, 0.3);
+  }
+  50% {
+    background-color: rgba(175, 76, 76, 0.5);
+  }
+  100% {
+    background-color: rgba(175, 76, 76, 0);
+  }
+}
+
+/* Style for Time Remaining */
+.time-remaining {
+  transition: all 1s ease; /* Apply transition to make the change smooth */
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff5722; /* Vibrant orange for better visibility */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+  margin-bottom: 10px;
+}
+
+/* Style for Progress Bar Container */
+.progress-container {
+  width: 100%;
+  height: 8px; /* Slightly thicker for better visibility */
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 5px;
+  margin-top: 20px; /* Added space between text and progress bar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Style for Progress Bar */
+.progress-bar {
+  background-color: #4caf50; /* Green for progress, easy on the eyes */
+  border-radius: 5px;
+  height: 100%;
+  width: 100%; /* Starts at full width */
+  transition: width 1s linear; /* Smooth transition for width change */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow around progress bar */
+}
+
+/* Color change on low time remaining */
+.progress-bar.low-time {
+  background-color: #ff5722; /* Red-orange color for low time */
 }

@@ -22,19 +22,35 @@ export default function Typingranks() {
           name: record.fields.Name,
           level: record.fields.level,
           accuracy: record.fields.accuracy,
-          timeTaken: record.fields.timetaken
+          timeTaken: record.fields.timetaken,
+          wpm: record.fields.wpm // Assuming 'wpm' is stored in Airtable
         }));
 
-        // Separate data by levels and sort by accuracy (highest first)
+        // Separate data by levels and sort by accuracy and WPM
         const easyRanks = data
           .filter((item) => item.level === 'easy')
-          .sort((a, b) => b.accuracy - a.accuracy);
+          .sort((a, b) => {
+            if (b.accuracy === a.accuracy) {
+              return b.wpm - a.wpm; // Sort by WPM if accuracy is the same
+            }
+            return b.accuracy - a.accuracy; // Sort by accuracy first
+          });
         const mediumRanks = data
           .filter((item) => item.level === 'medium')
-          .sort((a, b) => b.accuracy - a.accuracy);
+          .sort((a, b) => {
+            if (b.accuracy === a.accuracy) {
+              return b.wpm - a.wpm; // Sort by WPM if accuracy is the same
+            }
+            return b.accuracy - a.accuracy; // Sort by accuracy first
+          });
         const hardRanks = data
           .filter((item) => item.level === 'hard')
-          .sort((a, b) => b.accuracy - a.accuracy);
+          .sort((a, b) => {
+            if (b.accuracy === a.accuracy) {
+              return b.wpm - a.wpm; // Sort by WPM if accuracy is the same
+            }
+            return b.accuracy - a.accuracy; // Sort by accuracy first
+          });
 
         setRankings({
           Easy: easyRanks,
@@ -59,9 +75,9 @@ export default function Typingranks() {
   const getRankSymbol = (index) => {
     switch (index) {
       case 0:
-        return '👑'; 
+        return '👑';
       case 1:
-        return '🥈'; 
+        return '🥈';
       case 2:
         return '🥉';
       default:
@@ -71,7 +87,7 @@ export default function Typingranks() {
 
   return (
     <section id="typinrank-section">
-      <h1>Typing Ranks</h1>
+      <h1>Ranks Your Friend Get</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div id="rankings-container">
         {['Easy', 'Medium', 'Hard'].map((level) => (
@@ -92,7 +108,12 @@ export default function Typingranks() {
                         : ''
                     }
                   >
-                    <strong>{getRankSymbol(index)}</strong> {user.name} <br/> Accuracy: {user.accuracy*100}% <br/> Time: {user.timeTaken}s
+                    <strong>{getRankSymbol(index)}</strong> {user.name}
+                    <div className="details">
+                      Accuracy: {user.accuracy * 100}% <br />
+                      WPM: {user.wpm} <br />
+                      Time: {user.timeTaken}s
+                    </div>
                   </li>
                 ))
               ) : (

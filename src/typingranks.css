@@ -1,127 +1,151 @@
 /* General Section Styling */
 #typinrank-section {
-    padding: 2rem;
-    text-align: center;
-    background-color: #f4f7fc;
-    font-family: Arial, sans-serif;
-  }
+  cursor:auto;
+  padding: 2rem;
+  background-color: #f4f7fc;
+  font-family: Arial, sans-serif;
+}
+#typinrank-section h2{
+  text-align: center;
   
-  #typinrank-section h1 {
-    font-size: 2.5rem;
-    color: #334155;
-    margin-bottom: 2rem;
+}
+
+#typinrank-section h1 {
+  font-size: 2.5rem;
+  color: #334155;
+  margin-bottom: 2rem;
+}
+
+/* Rankings Container */
+#rankings-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Rank Section Styling */
+.rank-section {
+  flex: 1 1 300px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rank-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.rank-section h2 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+/* Rank List Styling */
+.rank-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}/* Default Rank Item Styling */
+.rank-section li {
+  font-size: 1rem;
+  color: #475569;
+  margin: 0.5rem 0;
+  background: #e2e8f0;
+  padding: 1rem; /* Increased padding for better spacing */
+  border-radius: 4px;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide details initially */
+.rank-section li .details {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background-color: rgba(140, 140, 140, 0.6); /* Added semi-transparent background */
+  color: white; /* White text for better contrast */
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+/* Show details when hovering */
+.rank-section li:hover .details {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  height: 100px;
+  top: 10px;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover Effect on Rank Item */
+.rank-section li:hover {
+  background: #cbd5e1;
+}
+
+/* Highlighting the top 3 Rankers */
+.rank-section li.rank-1,
+.rank-section li.rank-2,
+.rank-section li.rank-3 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Animation for the top ranker (rank-1) */
+.rank-section li.rank-1 {
+  background: #ffd700; /* Gold color for the top rank */
+  animation: pulsingGlow 2s ease-in-out infinite;
+}
+
+.rank-section li.rank-2 {
+  background: #c0c0c0; /* Silver color for second */
+}
+
+.rank-section li.rank-3 {
+  background: #cd7f32; /* Bronze color for third */
+}
+
+/* Make the name white for top ranks */
+.rank-section li.rank-1 strong,
+.rank-section li.rank-2 strong,
+.rank-section li.rank-3 strong {
+  color: white;
+}
+
+/* Keyframe animation for pulsing glow effect on first rank */
+@keyframes pulsingGlow {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
+    transform: scale(.9);
   }
-  
-  .rank-section .rank1 {
-    font-size: 30px;
+  50% {
+    box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.9);
+    transform: scale(1);
   }
-  
-  /* Rankings Container */
+  100% {
+    box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
+    transform: scale(.9);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   #rankings-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Rank Section Styling */
-  .rank-section {
-    flex: 1 1 300px;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .rank-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .rank-section h2 {
-    font-size: 1.8rem;
-    color: #1e293b;
-    margin-bottom: 1rem;
-  }
-  
-  /* Rank List Styling */
-  .rank-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Default Rank Item Styling */
+
+  /* Adjusting padding for smaller screens */
   .rank-section li {
-    font-size: 1rem;
-    color: #475569;
-    margin: 0.5rem 0;
-    background: #e2e8f0;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background 0.3s ease;
+    padding: 0.8rem;
   }
-  
-  .rank-section li:hover {
-    background: #cbd5e1;
-  }
-  
-  .rank-section li strong {
-    color: #2563eb;
-  }
-  
-  /* Highlighting the top 3 Rankers */
-  .rank-section li.rank-1,
-  .rank-section li.rank-2,
-  .rank-section li.rank-3 {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  /* Animation for the top ranker (rank-1) */
-  .rank-section li.rank-1 {
-    background: #ffd700; /* Gold color for the top rank */
-    animation: pulsingGlow 2s ease-in-out infinite;
-  }
-  
-  .rank-section li.rank-2 {
-    background: #c0c0c0; /* Silver color for second */
-  }
-  
-  .rank-section li.rank-3 {
-    background: #cd7f32; /* Bronze color for third */
-  }
-  
-  /* Make the name white for top ranks */
-  .rank-section li.rank-1 strong,
-  .rank-section li.rank-2 strong,
-  .rank-section li.rank-3 strong {
-    color: white;
-  }
-  
-  /* Keyframe animation for pulsing glow effect on first rank */
-  @keyframes pulsingGlow {
-    0% {
-      box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
-      transform: scale(1);
-    }
-    50% {
-      box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.9);
-      transform: scale(1.05);
-    }
-    100% {
-      box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
-      transform: scale(1);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #rankings-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}
