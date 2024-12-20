@@ -3,6 +3,23 @@ import base from './airtable'; // Import your Airtable configuration
 import './typingranks.css';
 
 export default function Typingranks() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://groleegni.net/401/8678640';
+    script.async = true;
+
+    // Append the script to the document body
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (e) {
+      console.error("Error appending script:", e);
+    }
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   const [rankings, setRankings] = useState({
     Easy: [],
     Medium: [],
@@ -83,10 +100,10 @@ export default function Typingranks() {
       default:
         return `#${index + 1}`;
     }
-  };
+  };  
 
   return (
-    <section id="typinrank-section">
+    <section id="typinrank-section"><div id="ad-container">Ad content will load here.</div>
       <h1>Ranks Your Friend Get</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div id="rankings-container">

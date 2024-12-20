@@ -21,6 +21,20 @@
     margin-bottom: 1rem;
     color: #2a3b4f;
   }
+  #ad-container {
+    width: 728px;
+    height: 90px;
+    margin: 20px auto; /* Center the ad horizontally */
+    position: relative; /* Ensure it's in the normal document flow */
+  }
+  
+  @media (max-width: 768px) {
+    #ad-container {
+      width: 100%; /* Make the ad container responsive on smaller screens */
+      height: auto;
+    }
+  }
+  
   
   /* Input Field */
   input[type="text"] {

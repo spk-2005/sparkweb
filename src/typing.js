@@ -191,7 +191,26 @@ export default function Typing() {
       );
     });
   };
+  useEffect(() => {
+    // Create a new script element
+    const script = document.createElement('script');
+    script.src = 'https://groleegni.net/401/8678640';
+    
+    // Append the script to the body or documentElement
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (e) {
+      console.error('Error loading the script:', e);
+    }
 
+    // Cleanup the script when the component unmounts
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+  
   const handleKeyDown = (e) => {
     if (e.key === 'Backspace') {
       setUserInput(prevInput => prevInput.slice(0, prevInput.length));
@@ -201,7 +220,11 @@ export default function Typing() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
+
+
+
   return (
+    <><div id="ad-container">Ad content will load here.</div>
     <section id="typingtest-section">
       <h1>Your Name: {name}</h1>
       <div id="typingtest-cont">
@@ -289,5 +312,6 @@ export default function Typing() {
         )}
       </div>
     </section>
+    </>
   );
 }
