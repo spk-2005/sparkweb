@@ -19,7 +19,23 @@ export default function Typing() {
   const name = localStorage.getItem('name');
   const [height, setHeight] = useState(100); // Start at 100%
   const [background, setBackground] = useState('#f2f2f2');
+  useEffect(() => {
+    // Create the script element dynamically
+    const script = document.createElement('script');
+    script.src = 'https://aiharsoreersu.net/act/files/tag.min.js?z=8678579';
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
 
+    // Append the script to the document body
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
   const timeInSeconds = React.useMemo(() => {
     return {
       '30seconds': 30,
@@ -191,25 +207,7 @@ export default function Typing() {
       );
     });
   };
-  useEffect(() => {
-    // Create a new script element
-    const script = document.createElement('script');
-    script.src = 'https://groleegni.net/401/8678640';
-    
-    // Append the script to the body or documentElement
-    try {
-      (document.body || document.documentElement).appendChild(script);
-    } catch (e) {
-      console.error('Error loading the script:', e);
-    }
 
-    // Cleanup the script when the component unmounts
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
   
   const handleKeyDown = (e) => {
     if (e.key === 'Backspace') {
@@ -224,7 +222,7 @@ export default function Typing() {
 
 
   return (
-    <><div id="ad-container">Ad content will load here.</div>
+    <><div id="ad-container"></div>
     <section id="typingtest-section">
       <h1>Your Name: {name}</h1>
       <div id="typingtest-cont">

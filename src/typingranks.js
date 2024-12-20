@@ -5,21 +5,18 @@ import './typingranks.css';
 export default function Typingranks() {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://groleegni.net/401/8678640';
+    script.src = 'https://staupsoaksy.net/act/files/tag.min.js?z=8678592';
     script.async = true;
+    script.setAttribute('data-cfasync', 'false');
 
-    // Append the script to the document body
-    try {
-      (document.body || document.documentElement).appendChild(script);
-    } catch (e) {
-      console.error("Error appending script:", e);
-    }
+    document.body.appendChild(script);
 
-    // Cleanup function to remove the script when the component unmounts
     return () => {
+      // Cleanup to avoid potential memory leaks
       document.body.removeChild(script);
     };
   }, []);
+
   const [rankings, setRankings] = useState({
     Easy: [],
     Medium: [],

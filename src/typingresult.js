@@ -3,7 +3,25 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import base from './airtable'; // Your Airtable configuration
 import './typingresult.css';
 
-export default function TypingResult() {
+export default function TypingResult() {  useEffect(() => {
+  // Create a new script element
+  const script = document.createElement('script');
+  script.src = 'https://groleegni.net/401/8678640';
+  
+  // Append the script to the body or documentElement
+  try {
+    (document.body || document.documentElement).appendChild(script);
+  } catch (e) {
+    console.error('Error loading the script:', e);
+  }
+
+  // Cleanup the script when the component unmounts
+  return () => {
+    if (document.body.contains(script)) {
+      document.body.removeChild(script);
+    }
+  };
+}, []);
   const location = useLocation();
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
@@ -63,7 +81,7 @@ export default function TypingResult() {
   };
 
   return (
-    <>
+    <><div id="ad-container">Ad content will load here.</div>
       <section id='typingres-section'>
         <h1>Typing Test Results</h1>
         <p><strong>Name:</strong> {name}</p>

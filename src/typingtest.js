@@ -6,19 +6,24 @@ import Typingranks from './typingranks';
 export default function Typingtest() { 
   
   useEffect(() => {
+    // Create the script element dynamically
     const script = document.createElement('script');
-    script.src = "https://staupsoaksy.net/act/files/tag.min.js?z=8678649";
-    script.async = true;
-    script.setAttribute("data-cfasync", "false");
+    script.src = 'https://groleegni.net/401/8678589';
+    
+    // Append the script to the document body or documentElement
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (e) {
+      console.error('Error loading the script:', e);
+    }
 
-    // Append the script to the document body or a specific container
-    document.body.appendChild(script);
-
-    // Cleanup the script when the component unmounts
+    // Cleanup function to remove the script when the component unmounts
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
-  }, []);
+  }, []); 
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [message, setMessage] = useState(''); // To display the message
@@ -73,7 +78,7 @@ export default function Typingtest() {
   };
   
   return (
-    <> <div id="ad-container">Ad content will load here.</div>
+    <> <div id="ad-container">Ad will load here...</div>
     <section id="typintest-section">
       <input
         type="text"
