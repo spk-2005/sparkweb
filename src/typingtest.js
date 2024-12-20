@@ -1,9 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import base from './airtable'; // Import your Airtable configuration
 import './typingtest.css';
 import Typingranks from './typingranks';
-export default function Typingtest() {
+export default function Typingtest() {  
+  useEffect(() => {
+  const script = document.createElement('script');
+  script.src = 'https://alwingulla.com/88/tag.min.js'; // Script source
+  script.async = true;
+  script.setAttribute('data-zone', '120573'); // Set data-zone attribute
+  script.setAttribute('data-cfasync', 'false'); // Set data-cfasync attribute
+
+  try {
+    document.body.appendChild(script); // Append the script to the body
+  } catch (error) {
+    console.error('Error appending the script:', error);
+  }
+
+  return () => {
+    // Cleanup script when the component is unmounted
+    if (script.parentNode) {
+      script.parentNode.removeChild(script);
+    }
+  };
+}, []);
+
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [message, setMessage] = useState(''); // To display the message
@@ -58,7 +79,10 @@ export default function Typingtest() {
   };
   
   return (
-    <>
+    <><div id="ad-container">
+    Ad content should load here.
+  </div>
+  
     <section id="typintest-section">
       <input
         type="text"
