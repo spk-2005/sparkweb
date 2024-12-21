@@ -102,7 +102,7 @@ export default function Typingtest() {
   };
   
   return (
-    <> <div id="ad-container">Ad will load here...</div>
+    <> <div id="ad-container"></div>
     <section id="typintest-section">
       <input
         type="text"

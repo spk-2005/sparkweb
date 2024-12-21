@@ -42,7 +42,6 @@ export default function TypingResult() {
       console.error('Error appending the script:', error);
     }
 
-    // Cleanup: Remove the script when the component is unmounted
     return () => {
       if (scriptElement) {
         scriptElement.remove();
@@ -110,7 +109,7 @@ export default function TypingResult() {
   };
 
   return (
-    <><div id="ad-container">Ad content will load here.</div>
+    <><div id="ad-container"></div>
       <section id='typingres-section'>
         <h1>Typing Test Results</h1>
         <p><strong>Name:</strong> {name}</p>

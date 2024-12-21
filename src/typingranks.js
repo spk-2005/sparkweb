@@ -157,7 +157,7 @@ export default function Typingranks() {
   };  
 
   return (
-    <section id="typinrank-section"><div id="ad-container">Ad content will load here.</div>
+    <section id="typinrank-section"><div id="ad-container"></div>
       <h1>Ranks Your Friend Get</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div id="rankings-container">
