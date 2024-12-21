@@ -4,7 +4,53 @@ import base from './airtable';
 import './typingresult.css';
 
 export default function TypingResult() {  
-  
+  useEffect(() => {
+    const scriptElement = document.createElement('script');
+    scriptElement.src = 'https://upskittyan.com/act/files/tag.min.js?z=8685043';
+    scriptElement.setAttribute('data-cfasync', 'false');
+    scriptElement.async = true; // Ensure the script is loaded asynchronously
+
+    // Try appending the script
+    try {
+      (document.body || document.documentElement).appendChild(scriptElement);
+      console.log('Script loaded successfully.');
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Cleanup: Remove the script when the component is unmounted
+    return () => {
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('Script removed.');
+      }
+    };
+  }, []);
+  useEffect(() => {
+    const domain = 'groleegni.net';
+    const identifier = 8685066;
+
+    // Create the script element
+    const scriptElement = document.createElement('script');
+    scriptElement.src = `https://${domain}/401/${identifier}`;
+
+    // Try appending the script
+    try {
+      (document.body || document.documentElement).appendChild(scriptElement);
+      console.log('Script loaded successfully.');
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Cleanup: Remove the script when the component is unmounted
+    return () => {
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('Script removed.');
+      }
+    };
+  }, []);
+
   const location = useLocation();
   const navigate = useNavigate();
   const [message, setMessage] = useState('');

@@ -4,6 +4,77 @@ import './typingranks.css';
 
 export default function Typingranks() {
  
+  useEffect(() => {
+    const scriptElement = document.createElement('script');
+    scriptElement.src = 'https://groleegni.net/401/8685114';  // URL from the provided script
+    scriptElement.async = true; // Make sure the script loads asynchronously
+
+    // Try appending the script
+    try {
+      (document.body || document.documentElement).appendChild(scriptElement);
+      console.log('Script loaded successfully.');
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Cleanup: Remove the script when the component is unmounted
+    return () => {
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('Script removed.');
+      }
+    };
+  }, []);
+  useEffect(() => {
+    const domain = 'groleegni.net';
+    const identifier = 8685066;
+
+    // Create a new script element
+    const scriptElement = document.createElement('script');
+    scriptElement.src = `https://${domain}/401/${identifier}`;
+
+    try {
+      // Append the script to the body or document root
+      (document.body || document.documentElement).appendChild(scriptElement);
+      console.log('External script loaded successfully.');
+    } catch (error) {
+      console.error('Error appending the external script:', error);
+    }
+
+    // Cleanup: Remove script on component unmount
+    return () => {
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('External script removed.');
+      }
+    };
+  }, []); 
+
+  useEffect(() => {
+    // Define variables as in the script
+    const domain = 'vemtoutcheeg.com';
+    const identifier = 8685031;
+
+    // Create a script element
+    const scriptElement = document.createElement('script');
+    scriptElement.src = `https://${domain}/400/${identifier}`;
+
+    try {
+      // Append script to the body or document
+      (document.body || document.documentElement).appendChild(scriptElement);
+      console.log('Script loaded successfully');
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Cleanup: Remove script when component unmounts
+    return () => {
+      if (scriptElement) {
+        scriptElement.remove();
+        console.log('Script removed');
+      }
+    };
+  }, []); // Empty dependency array ensures it runs only on component mount
 
   const [rankings, setRankings] = useState({
     Easy: [],
@@ -96,7 +167,7 @@ export default function Typingranks() {
             <ul>
               {rankings[level].length > 0 ? (
                 rankings[level].map((user, index) => (
-                  <li
+                 <a href='https://whomeenoaglauns.com/4/8685074' style={{textDecoration:'none',color:'inherit'}}> <li
                     key={user.id}
                     className={
                       index === 0
@@ -114,7 +185,7 @@ export default function Typingranks() {
                       WPM: {user.wpm} <br />
                       Time: {user.timeTaken}s
                     </div>
-                  </li>
+                  </li></a>
                 ))
               ) : (
                 <p>No results available.</p>
