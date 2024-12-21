@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import base from './airtable'; // Import your Airtable configuration
+import base from './airtable';
 import './typingranks.css';
 
 export default function Typingranks() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://staupsoaksy.net/act/files/tag.min.js?z=8678592';
-    script.async = true;
-    script.setAttribute('data-cfasync', 'false');
-
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup to avoid potential memory leaks
-      document.body.removeChild(script);
-    };
-  }, []);
+ 
 
   const [rankings, setRankings] = useState({
     Easy: [],
@@ -26,7 +14,6 @@ export default function Typingranks() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Fetch data from Airtable
   useEffect(() => {
     const fetchRanks = async () => {
       try {
@@ -37,33 +24,32 @@ export default function Typingranks() {
           level: record.fields.level,
           accuracy: record.fields.accuracy,
           timeTaken: record.fields.timetaken,
-          wpm: record.fields.wpm // Assuming 'wpm' is stored in Airtable
+          wpm: record.fields.wpm 
         }));
 
-        // Separate data by levels and sort by accuracy and WPM
         const easyRanks = data
           .filter((item) => item.level === 'easy')
           .sort((a, b) => {
             if (b.accuracy === a.accuracy) {
-              return b.wpm - a.wpm; // Sort by WPM if accuracy is the same
+              return b.wpm - a.wpm; 
             }
-            return b.accuracy - a.accuracy; // Sort by accuracy first
+            return b.accuracy - a.accuracy; 
           });
         const mediumRanks = data
           .filter((item) => item.level === 'medium')
           .sort((a, b) => {
             if (b.accuracy === a.accuracy) {
-              return b.wpm - a.wpm; // Sort by WPM if accuracy is the same
+              return b.wpm - a.wpm; 
             }
-            return b.accuracy - a.accuracy; // Sort by accuracy first
+            return b.accuracy - a.accuracy; 
           });
         const hardRanks = data
           .filter((item) => item.level === 'hard')
           .sort((a, b) => {
             if (b.accuracy === a.accuracy) {
-              return b.wpm - a.wpm; // Sort by WPM if accuracy is the same
+              return b.wpm - a.wpm; 
             }
-            return b.accuracy - a.accuracy; // Sort by accuracy first
+            return b.accuracy - a.accuracy; 
           });
 
         setRankings({

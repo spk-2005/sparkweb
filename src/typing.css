@@ -1,11 +1,10 @@
 
 #typingtest-section {
-  background: #ffffff;
-  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
-  padding: 50px;
   margin-right: auto;
+  background:linear-gradient(rgb(191, 197, 205),rgb(237, 229, 237),rgb(208, 208, 203)) ;
   margin-left: auto;
   border-radius: 12px;
+  box-shadow: 0px 8px 16px grey;
   max-width: 800px;
   width: 100%;
   text-align: center;
@@ -27,29 +26,69 @@
   }
 }
 #typingtest-section #note P{
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: red;
 }
-#typingtest-section:hover {
-  transform: scale(1);
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+#casula{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #typingtest-cont h1 {
-  font-size: 3rem;
+  font-size: 1rem;
   color: #2c3e50;
-  margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
   transition: color 0.4s ease, transform 0.3s ease;
 }
+#typebor2{
+  padding-top: 2em !important;
+}
 #typebor {
   position: relative;
   border: 2px solid gray;
 }
+#typebor {
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  position: relative;
+  font-size: 30px;
+  line-height: 1.5;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 50px !important;
+  white-space: nowrap;
+  word-spacing: 20px;
+  
+}
 
+#typebor::-webkit-scrollbar {
+  height: 6px; /* Optional: Customize scrollbar height */
+}
+
+#typebor::-webkit-scrollbar-thumb {
+  background: transparent; /* Optional: Scrollbar thumb color */
+  border-radius: 3px;
+}
+
+#typebor::-webkit-scrollbar-thumb:hover {
+  background:  transparent; /* Optional: Thumb hover color */
+}
+
+#typebor2::-webkit-scrollbar {
+  height: 6px; /* Optional: Customize scrollbar height */
+}
+
+#typebor2::-webkit-scrollbar-thumb {
+  background: transparent; /* Optional: Scrollbar thumb color */
+  border-radius: 3px;
+}
+
+#typebor2::-webkit-scrollbar-thumb:hover {
+  background:  transparent; /* Optional: Thumb hover color */
+}
 #typebor::before {
   position: absolute;
   top: 0;
@@ -76,7 +115,7 @@
 #typingtest-cont div {
   font-size: 20px;
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: px;
   padding: 15px 0;
   white-space: pre-wrap; /* Preserve spaces and newlines */
   position: relative;
@@ -205,10 +244,6 @@
   transition: transform 0.4s ease-in-out;
 }
 
-#typingtest-cont:hover {
-  transform: scale(1);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   #typingtest-cont {
@@ -269,6 +304,7 @@
   }
 }
 .highlight2{
+  text-decoration: line-through;
   animation: highlightText2 0.3s ease-in-out;
 }
 
@@ -291,7 +327,8 @@
   font-weight: bold;
   color: #ff5722; /* Vibrant orange for better visibility */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
-  margin-bottom: 10px;
+ padding: 0;
+ margin: 0;
 }
 
 /* Style for Progress Bar Container */
@@ -300,7 +337,7 @@
   height: 8px; /* Slightly thicker for better visibility */
   background-color: #f0f0f0; /* Light gray background */
   border-radius: 5px;
-  margin-top: 20px; /* Added space between text and progress bar */
+  margin-top: 10px; /* Added space between text and progress bar */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 

@@ -5,12 +5,10 @@ import './texttopdf.css';
 export default function Texttopdf() {
   const [text, setText] = useState('');
 
-  // Handle text input change
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
 
-  // Convert text to PDF
   const handleConvertToPDF = () => {
     if (text.trim() === '') {
       alert('Please enter some text');
