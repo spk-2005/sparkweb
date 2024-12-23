@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import base from './airtable';
+import base from '../airtable';
 import './typingranks.css';
 
 export default function Typingranks() {

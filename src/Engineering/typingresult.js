@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import base from './airtable'; 
+import base from '../airtable'; 
 import './typingresult.css';
 
 export default function TypingResult() {  

@@ -22,6 +22,14 @@ export default function Header() {
                         </div>
                         <CustomLink href='/'>Home</CustomLink>
                         <CustomLink href='./about'>About</CustomLink>
+                        <li>
+                            News
+                            <ul>
+                                <CustomLink href='./news?category=Entertainment'>Entertainment</CustomLink>
+                                <CustomLink href='./news?category=Movies'>Movies</CustomLink>
+                                <CustomLink href='./news?category=Sports'>Sports</CustomLink>
+                            </ul>
+                        </li>
                         <li>Converters
                             <ul>
                                 <CustomLink href='./imagestopdf'>Images To PDF</CustomLink>
@@ -40,15 +48,7 @@ export default function Header() {
                                 <CustomLink href='./typingtest'>Typing Test</CustomLink>
                             </ul>
                         </li>
-                        <li>Wishes
-                            <ul>
-                                <CustomLink href='./birth'>Birthday Wishes</CustomLink>
-                                <CustomLink href='./festival'>Festival Wishes</CustomLink>
-                                <CustomLink href='./marriage'>Marriage Wishes</CustomLink>
-                                <CustomLink href='./independence'>Independence Day Wishes</CustomLink>
-                                <CustomLink href='./republic'>Republic Day Wishes</CustomLink>
-                            </ul>
-                        </li>
+                        
                         <li>Mock Tests
                             <ul>
                                 <CustomLink href='./gate'>GATE (Previous Papers)</CustomLink>
@@ -56,6 +56,7 @@ export default function Header() {
                                 <CustomLink>10th Class</CustomLink>
                             </ul>
                         </li>
+                        <CustomLink href='./about'>Contact</CustomLink>
                     </ol>
                 </div>
                 

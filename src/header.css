@@ -2,6 +2,7 @@
 #header-section {
   background: linear-gradient(45deg, #ff6e61b8, #ff2f00);
   color: white;
+  box-shadow: 0px 1px 18px grey;
 }
 
 #header-section #header-cont {
