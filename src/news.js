@@ -5,7 +5,7 @@ export default function News() {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch('https://spkhub-backend.onrender.com/api/post')
+    fetch('https://spkhub-backend-1.onrender.com/api/post')
       .then((response) => response.json())
       .then((data) => {
         setPosts(data); // Set the fetched data in state
