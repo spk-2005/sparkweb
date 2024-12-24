@@ -2,20 +2,23 @@ import React, { useEffect, useState } from 'react';
 
 export default function News() {
   const [posts, setPosts] = useState([]);
-
+  const collectionName='entertainments';
   useEffect(() => {
+    // Construct the API URL dynamically using the collectionName prop
+    const apiUrl = `https://spkhub-backend-1.onrender.com/api/${collectionName}`;
+    
     // Fetch data from the API
-    fetch('https://spkhub-backend-1.onrender.com/api/post')
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         setPosts(data); // Set the fetched data in state
       })
       .catch((err) => console.error('Error fetching posts:', err));
-  }, []);
+  }, [collectionName]); // Run this effect every time collectionName changes
 
   return (
     <section id="news-section">
-      <h1>All News</h1>
+      <h1>All {collectionName}</h1>
       <div id="news-cont">
         {posts.length > 0 ? (
           posts.map((post, index) => (
