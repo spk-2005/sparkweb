@@ -17,6 +17,7 @@ import Typingtime from './Engineering/typingtime';
 import Typingresult from './Engineering/typingresult';
 import Typingranks from './Engineering/typingranks';
 import News from './news';
+import Newsportal from './newsportal';
 
 function App() {
   return (
@@ -39,7 +40,8 @@ function App() {
       <Route path='typingtime/:level/:name' element={<Typingtime/>}/>
       <Route path='typingresult' element={<Typingresult/>}/>
       <Route path='typingranks' element={<Typingranks/>}/>
-      <Route path='news' element={<News/>}/>
+      <Route path='news/:id/:collection' element={<News/>}/>
+      <Route path='newsportal' element={<Newsportal/>}/>
     </Routes>
     </BrowserRouter>
     </>

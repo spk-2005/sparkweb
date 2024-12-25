@@ -25,9 +25,9 @@ export default function Header() {
                         <li>
                             News
                             <ul>
-                                <CustomLink href='./news?category=Entertainment'>Entertainment</CustomLink>
-                                <CustomLink href='./news?category=Movies'>Movies</CustomLink>
-                                <CustomLink href='./news?category=Sports'>Sports</CustomLink>
+                                <CustomLink href='./newsportal?category=entertainments'>Entertainment</CustomLink>
+                                <CustomLink href='./newsportal?category=movies'>Movies</CustomLink>
+                                <CustomLink href='./newsportal?category=sports'>Sports</CustomLink>
                             </ul>
                         </li>
                         <li>Converters
