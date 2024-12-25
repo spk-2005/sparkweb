@@ -13,7 +13,7 @@ export default function News() {
 
   useEffect(() => {
     // Construct the API URL dynamically using collection and id parameters
-    const apiUrl = `http://localhost:5000/api/${collection}/${id}`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/${collection}/${id}`;
 
     // Fetch data from the API for a specific post by id
     fetch(apiUrl)

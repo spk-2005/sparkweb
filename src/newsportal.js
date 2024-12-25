@@ -9,7 +9,7 @@ export default function Newsportal() {
   const navigate = useNavigate();
   
   useEffect(() => {
-    const apiUrl = `http://localhost:5000/api/${collectionName}`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/${collectionName}`;
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
