@@ -31,7 +31,7 @@
     color: #333;
   }
   
-  canvas {
+  #imagestopdf-section canvas {
     width: 70%;
     height: auto;
     display: block;
@@ -41,11 +41,11 @@
     box-sizing: border-box;
   }
   
-  input[type="number"] {
+ #imagestopdf-section input[type="number"] {
     margin: 5px;
   }
   
-  button {
+ #imagestopdf-section button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -56,16 +56,16 @@
     font-size: 16px;
   }
   
-  button:hover {
+ #imagestopdf-section button:hover {
     background-color: #45a049;
   }
   
-  button:disabled {
+ #imagestopdf-section button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
   }
   
-  label {
+ #imagestopdf-section label {
     font-size: 14px;
     font-weight: bold;
   }
@@ -84,7 +84,7 @@
       height: 80px;
     }
   
-    button {
+  #imagestopdf-section  button {
       width: 100%;
       padding: 12px;
     }
@@ -99,7 +99,7 @@
       height: 70px;
     }
   
-    button {
+  #imagestopdf-section  button {
       padding: 10px !important;
       font-size: 1rem !important;     
     }

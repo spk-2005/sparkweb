@@ -1,10 +1,15 @@
+#newsportal{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
 
 #newsportal-section {
-    padding: 2em 3%;
-    background-color: #f7f7f7;
+  width: 80%;
+    padding: 1em 1%;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
   }
   #news-head{
     display: flex;
@@ -16,16 +21,14 @@
 
   }
   #newsover {
-    height: 300px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 70%;
-    background-color: #ffffff;
+    width: 90%;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    padding: 1em;
     cursor: pointer;
   }
   
@@ -36,7 +39,7 @@
   }
   
   #newsover img {
-    width: 40%;
+    width: 30% !important;
     height: 80%;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -86,9 +89,13 @@
     margin-left: 1.5em;
   }
   #newsportal-advert{
-    width: 25%;
-    border: 2px solid red;
+    width: 20%;
+    margin: 1em;
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+  #newsportal-advert h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
   }

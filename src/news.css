@@ -1,0 +1,27 @@
+#postnews{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#postnews span{
+color: grey;
+}
+.share-buttons button{
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .share-buttons button:nth-child(1){
+    color: rgb(0, 42, 255);
+  }
+  
+  .share-buttons button:nth-child(2){
+    color: rgb(0, 170, 255);
+  }
+  
+  .share-buttons button:nth-child(3){
+    color: rgb(0, 255, 34);
+  }
+  

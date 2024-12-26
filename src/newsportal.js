@@ -13,7 +13,8 @@ export default function Newsportal() {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setPosts(data);
+        const sortedPosts = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setPosts(sortedPosts);
       })
       .catch((err) => console.error('Error fetching posts:', err));
   }, [collectionName]);
@@ -22,14 +23,17 @@ export default function Newsportal() {
     navigate(`/news/${id}/${collectionName}`);
   };
   const main={
-    entertainments:'Entertainment'
+    entertainments:'Entertainment',
+    movies:'Movies',
+    sports:'Sports',
   }
   return (
     <>
     <div id='news-head'>
       <h1>Explore The exciting news about {main[collectionName]}</h1>
     </div>
-    <section id='newsportal-section'>
+    <div id='newsportal'>
+      <section id='newsportal-section'>
       {posts.length > 0 ? (
         posts.map((post) => (
           <div key={post._id} onClick={() => handlePostClick(post._id)} id='newsover'>
@@ -47,7 +51,8 @@ export default function Newsportal() {
       )}
     </section>
       <div id='newsportal-advert'>
-        <h1>Advertaisment</h1>
+        <h1>Most Viwed Articles</h1>
+      </div>
       </div>
     </>);
 }

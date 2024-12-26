@@ -16,7 +16,7 @@
   }
   
   /* Textarea Styling */
-  textarea {
+  #texttopdf-section textarea {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -27,13 +27,13 @@
     transition: all 0.3s ease;
   }
   
-  textarea:focus {
+ #texttopdf-section  textarea:focus {
     border-color: #4caf50;
     outline: none;
   }
   
   /* Button Styling */
-  button {
+#texttopdf-section   button {
     padding: 10px 20px;
     background-color: #4caf50;
     color: white;
@@ -45,7 +45,7 @@
     margin-top: 20px;
   }
   
-  button:hover {
+#texttopdf-section   button:hover {
     background-color: #45a049;
   }
   
@@ -55,22 +55,22 @@
       padding: 15px;
     }
   
-    textarea {
+   #texttopdf-section  textarea {
       font-size: 14px;
     }
   
-    button {
+   #texttopdf-section  button {
       width: 100%;
       padding: 12px;
     }
   }
   
   @media screen and (max-width: 480px) {
-    textarea {
+   #texttopdf-section  textarea {
       font-size: 13px;
     }
   
-    button {
+   #texttopdf-section  button {
       padding: 15px;
       font-size: 18px;
     }

@@ -65,7 +65,7 @@
   }
   
   /* Button */
-  button {
+ #typintest-section button {
     padding: 0.8rem 2rem;
     font-size: 1rem;
     font-weight: bold;
@@ -78,19 +78,19 @@
     transition: all 0.3s ease;
   }
   
-  button:hover {
+#typintest-section  button:hover {
     background: #4d5eb7;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
-  button:active {
+ #typintest-section button:active {
     transform: translateY(2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
   /* Error Message */
-  p {
+ #typintest-section p {
     font-size: 0.9rem;
     color: #e63946;
     margin-top: -0.5rem;
@@ -114,7 +114,7 @@
       font-size: 1.8rem;
     }
   
-    input[type="text"], select, button {
+   #typintest-section input[type="text"],#typintest-section select,#typintest-section button {
       font-size: 0.9rem;
     }
   }
